@@ -17,7 +17,10 @@
           var div = document.createElement("div");
           
           // set the inner HTML of the div to the values from the JSON item
-          div.innerHTML = "<div>" + item.name + ": " + item.value + "</div>";
+          div.innerHTML = item.name + ": " + item.value;
+          
+          // add the class attribute to the div based on the name from the JSON item
+          div.className = item.name;
           
           // append the div to the container
           container.appendChild(div);
