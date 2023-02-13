@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="testDiv">testDiv</div>
-</body>
+<html>
+  <head>
+    <script>
+      function generateElementsFromJSON(jsonData) {
+        // parse the JSON string into a JavaScript object
+        var data = JSON.parse(jsonData);
+        
+        // get a reference to the container element where the HTML will be generated
+        var container = document.getElementById("container");
+        
+        // loop through each item in the data object
+        for (var i = 0; i < data.length; i++) {
+          // get the current item
+          var item = data[i];
+          
+          // create a new div element
+          var div = document.createElement("div");
+          
+          // set the inner HTML of the div to the values from the JSON item
+          div.innerHTML = item.name + ": " + item.value;
+          
+          // append the div to the container
+          container.appendChild(div);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+    
+    <script>
+      // example JSON data
+      var jsonData = '[{"name": "item1", "value": 100}, {"name": "item2", "value": 200}]';
+      
+      // call the function to generate the HTML elements
+      generateElementsFromJSON(jsonData);
+    </script>
+  </body>
 </html>
